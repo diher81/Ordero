@@ -5,6 +5,7 @@ import be.diher81.switchfully.domain.CustomerRepository;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class CustomerService {
@@ -16,4 +17,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    public List<Customer> getCustomers() {
+        return customerRepository.getCustomers();
+    }
 }

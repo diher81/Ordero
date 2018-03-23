@@ -2,6 +2,7 @@ package be.diher81.switchfully.api;
 
 import be.diher81.switchfully.domain.Customer;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
@@ -13,6 +14,7 @@ public class CustomerMapper {
                 customer.getLastName(),
                 customer.getEmail(),
                 customer.getPhoneNumber(),
-                customer.getAddress());
+                customer.getAddress()
+        );
     }
 }
