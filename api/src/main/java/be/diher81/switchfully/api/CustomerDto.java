@@ -1,21 +1,19 @@
 package be.diher81.switchfully.api;
 
-import be.diher81.switchfully.domain.Address;
-
 public class CustomerDto {
 
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    private Address address;
+    private AddressDto addressDto;
 
-    public CustomerDto(String firstName, String lastName, String email, String phoneNumber, Address address) {
+    public CustomerDto(String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.address = address;
+        this.addressDto = addressDto;
     }
 
     public String getFirstName() {
@@ -34,7 +32,7 @@ public class CustomerDto {
         return phoneNumber;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressDto getAddressDto() {
+        return addressDto;
     }
 }
