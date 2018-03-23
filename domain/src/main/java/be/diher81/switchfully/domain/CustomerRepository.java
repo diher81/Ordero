@@ -14,10 +14,6 @@ public class CustomerRepository {
         this.customers = customers;
     }
 
-    public void addNewCustomerToRepository(Customer customer) {
-        customers.add(customer);
-    }
-
     private void addInitialCustomersToRepository() {
         customers.add(new Customer("Dirk", "Hermans", "dirk.hemans@cm.be", "0497838383", new Address("Javastraat", "8", "3600", "Genk")));
         customers.add(new Customer("Harry", "Potter", "harry.potter@cm.be", "0497838384", new Address("Privet Drive", "9", "3601", "Little Whinging")));

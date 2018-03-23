@@ -16,7 +16,4 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public void addNewCustomer(Customer customer) {
-        customerRepository.addNewCustomerToRepository(customer);
-    }
 }

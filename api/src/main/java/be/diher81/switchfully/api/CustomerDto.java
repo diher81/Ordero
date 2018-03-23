@@ -1,27 +1,21 @@
-package be.diher81.switchfully.domain;
+package be.diher81.switchfully.api;
 
-import java.util.UUID;
+import be.diher81.switchfully.domain.Address;
 
-public class Customer {
+public class CustomerDto {
 
-    private UUID customerId;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private Address address;
 
-    public Customer(String firstName, String lastName, String email, String phoneNumber, Address address) {
-        this.customerId = UUID.randomUUID();
+    public CustomerDto(String firstName, String lastName, String email, String phoneNumber, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
-    }
-
-    public UUID getCustomerId() {
-        return customerId;
     }
 
     public String getFirstName() {
