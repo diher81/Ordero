@@ -15,4 +15,13 @@ public class AddressMapper {
                 address.getCity()
         );
     }
+
+    public Address toDomain(AddressDto addressDto) {
+        return new Address(
+                addressDto.getStreet(),
+                addressDto.getHouseNumber(),
+                addressDto.getPostalCode(),
+                addressDto.getCity()
+                );
+    }
 }

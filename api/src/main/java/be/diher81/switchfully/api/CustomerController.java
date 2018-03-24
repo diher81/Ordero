@@ -3,14 +3,13 @@ package be.diher81.switchfully.api;
 import be.diher81.switchfully.domain.Customer;
 import be.diher81.switchfully.service.CustomerService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RequestMapping(path = "/customers")
 @RestController
@@ -25,7 +24,7 @@ public class CustomerController {
         this.customerMapper = customerMapper;
     }
 
-    @GetMapping(produces = "application/json")
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerDto> getCustomers() {
         List<CustomerDto> customerDtos = new ArrayList<>();
@@ -33,5 +32,11 @@ public class CustomerController {
             customerDtos.add(customerMapper.toDto(customer));
         }
         return customerDtos;
+    }
+
+    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addNewCustomer(@RequestBody CustomerDto customerDto) {
+        customerService.addNewCustomer(customerMapper.toDomain(customerDto));
     }
 }

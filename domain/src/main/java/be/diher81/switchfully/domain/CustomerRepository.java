@@ -16,6 +16,10 @@ public class CustomerRepository {
         this.addInitialCustomersToRepository();
     }
 
+    public void addNewCustomer(Customer customer) {
+        customers.add(customer);
+    }
+
     private void addInitialCustomersToRepository() {
         customers.add(new Customer("Dirk", "Hermans", "dirk.hemans@cm.be", "0497838383"
                 , new Address("Javastraat", "8", "3600", "Genk")

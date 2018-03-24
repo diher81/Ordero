@@ -24,4 +24,13 @@ public class CustomerMapper {
                 addressMapper.toDto(customer.getAddress())
         );
     }
+
+    public Customer toDomain(CustomerDto customerDto) {
+        return new Customer(customerDto.getFirstName(),
+                customerDto.getLastName(),
+                customerDto.getEmail(),
+                customerDto.getPhoneNumber(),
+                addressMapper.toDomain(customerDto.getAddressDto())
+        );
+    }
 }

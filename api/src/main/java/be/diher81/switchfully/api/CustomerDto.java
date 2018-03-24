@@ -8,6 +8,9 @@ public class CustomerDto {
     private String phoneNumber;
     private AddressDto addressDto;
 
+    public CustomerDto() {
+    }
+
     public CustomerDto(String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
         this.firstName = firstName;
         this.lastName = lastName;

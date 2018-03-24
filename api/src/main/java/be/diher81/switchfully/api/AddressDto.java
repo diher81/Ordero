@@ -7,6 +7,9 @@ public class AddressDto {
     private String postalCode;
     private String city;
 
+    public AddressDto() {
+    }
+
     public AddressDto(String street, String houseNumber, String postalCode, String city) {
         this.street = street;
         this.houseNumber = houseNumber;
