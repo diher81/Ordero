@@ -23,8 +23,8 @@ public class CustomerService {
     }
 
     public void addNewCustomer(Customer customer) {
-        assertMandatoryFieldsFilledIn(customer);
-        customerRepository.addNewCustomer(customer);
+            assertMandatoryFieldsFilledIn(customer);
+            customerRepository.addNewCustomer(customer);
     }
 
     private void assertMandatoryFieldsFilledIn(Customer customer) {
