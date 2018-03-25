@@ -1,6 +1,6 @@
 package be.diher81.switchfully.api;
 
-import be.diher81.switchfully.domain.Customer;
+import be.diher81.switchfully.domain.customer.Customer;
 import be.diher81.switchfully.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

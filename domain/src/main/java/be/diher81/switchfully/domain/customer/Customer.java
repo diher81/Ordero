@@ -1,4 +1,4 @@
-package be.diher81.switchfully.domain;
+package be.diher81.switchfully.domain.customer;
 
 import java.util.UUID;
 

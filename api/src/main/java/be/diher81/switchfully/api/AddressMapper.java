@@ -1,6 +1,6 @@
 package be.diher81.switchfully.api;
 
-import be.diher81.switchfully.domain.Address;
+import be.diher81.switchfully.domain.customer.Address;
 
 import javax.inject.Named;
 
