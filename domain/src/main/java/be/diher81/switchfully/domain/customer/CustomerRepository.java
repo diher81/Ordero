@@ -1,4 +1,4 @@
-package be.diher81.switchfully.domain;
+package be.diher81.switchfully.domain.customer;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,7 +28,7 @@ public class CustomerRepository {
                 , new Address("Privet Drive", "9", "3601", "Little Whinging")
         ));
         customers.add(new Customer("Jean-Michel", "Saive", "jm.saive@cm.be", "0497838385"
-                , new Address("pigpongstraat", "11", "3602", "Auderghem")
+                , new Address("pingpongstraat", "11", "3602", "Auderghem")
         ));
     }
 
