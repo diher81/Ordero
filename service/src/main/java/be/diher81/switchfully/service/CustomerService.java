@@ -22,15 +22,12 @@ public class CustomerService {
         return customerRepository.getCustomers();
     }
 
-    public void addNewCustomer(Customer customer) {
+    public Customer addNewCustomer(Customer customer) {
             assertMandatoryFieldsFilledIn(customer);
-            customerRepository.addNewCustomer(customer);
+            return customerRepository.addNewCustomer(customer);
     }
 
     private void assertMandatoryFieldsFilledIn(Customer customer) {
-        if (customer.getCustomerId() != null) {
-            throw new CustomerInstantiationException("You cannot provide a customer id to create a new customer.");
-        }
         if (customer.getFirstName() == null) {
             throw new CustomerInstantiationException("Please provide a first name.");
         }

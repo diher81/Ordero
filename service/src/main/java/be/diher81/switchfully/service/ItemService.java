@@ -24,9 +24,6 @@ public class ItemService {
     }
 
     private void assertMandatoryFieldsFilledIn(Item item) {
-        if (item.getItemId() != null) {
-            throw new ItemInstantiationException("Item id cannot be provided.");
-        }
         if (item.getName() == null) {
             throw new ItemInstantiationException("Item name is mandatory.");
         }

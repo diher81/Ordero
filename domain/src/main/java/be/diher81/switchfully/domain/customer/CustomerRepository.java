@@ -16,8 +16,9 @@ public class CustomerRepository {
         this.addInitialCustomersToRepository();
     }
 
-    public void addNewCustomer(Customer customer) {
+    public Customer addNewCustomer(Customer customer) {
         customers.add(customer);
+        return customer;
     }
 
     private void addInitialCustomersToRepository() {

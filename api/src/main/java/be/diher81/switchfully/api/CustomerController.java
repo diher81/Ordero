@@ -36,7 +36,7 @@ public class CustomerController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public void addNewCustomer(@RequestBody CustomerDto customerDto) {
-        customerService.addNewCustomer(customerMapper.toDomain(customerDto));
+    public CustomerDto addNewCustomer(@RequestBody CustomerDto customerDto) {
+        return customerMapper.toDto(customerService.addNewCustomer(customerMapper.toDomain(customerDto)));
     }
 }
