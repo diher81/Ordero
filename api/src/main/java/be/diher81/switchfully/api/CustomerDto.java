@@ -14,6 +14,14 @@ public class CustomerDto {
     public CustomerDto() {
     }
 
+    public CustomerDto(String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.addressDto = addressDto;
+    }
+
     public CustomerDto(UUID id, String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
         this.id = id;
         this.firstName = firstName;

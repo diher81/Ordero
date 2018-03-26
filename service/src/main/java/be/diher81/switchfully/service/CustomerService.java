@@ -28,6 +28,9 @@ public class CustomerService {
     }
 
     private void assertMandatoryFieldsFilledIn(Customer customer) {
+        if (customer.getCustomerId() != null) {
+            throw new CustomerInstantiationException("You cannot provide a customer id to create a new customer.");
+        }
         if (customer.getFirstName() == null) {
             throw new CustomerInstantiationException("Please provide a first name.");
         }
