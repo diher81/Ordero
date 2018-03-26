@@ -1,4 +1,4 @@
-package be.diher81.switchfully.api;
+package be.diher81.switchfully.api.customer;
 
 import java.util.UUID;
 
@@ -14,7 +14,8 @@ public class CustomerDto {
     public CustomerDto() {
     }
 
-    public CustomerDto(String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
+    public CustomerDto(UUID customerId, String firstName, String lastName, String email, String phoneNumber, AddressDto addressDto) {
+        this.id = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

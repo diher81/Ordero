@@ -1,4 +1,4 @@
-package be.diher81.switchfully.api;
+package be.diher81.switchfully.api.customer;
 
 public class AddressDto {
 

@@ -1,4 +1,4 @@
-package be.diher81.switchfully.api;
+package be.diher81.switchfully.api.customer;
 
 import be.diher81.switchfully.domain.customer.Customer;
 import be.diher81.switchfully.service.CustomerService;

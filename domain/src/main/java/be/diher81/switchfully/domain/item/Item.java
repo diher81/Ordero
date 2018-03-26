@@ -19,6 +19,14 @@ public class Item {
         this.amount = amount;
     }
 
+    public Item(UUID id, String name, String description, BigDecimal price, long amount) {
+        this.itemId = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.amount = amount;
+    }
+
     public UUID getItemId() {
         return itemId;
     }
@@ -37,5 +45,21 @@ public class Item {
 
     public long getAmount() {
         return amount;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 }

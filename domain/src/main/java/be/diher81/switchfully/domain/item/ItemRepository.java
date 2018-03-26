@@ -5,6 +5,7 @@ import javax.inject.Named;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Named
 public class ItemRepository {
@@ -31,5 +32,27 @@ public class ItemRepository {
     public Item addItem(Item item) {
         items.add(item);
         return item;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public Item updateItem(Item item) {
+        Item itemToUpdate = getItem(item.getItemId());
+        itemToUpdate.setName(item.getName());
+        itemToUpdate.setDescription(item.getDescription());
+        itemToUpdate.setPrice(item.getPrice());
+        itemToUpdate.setAmount(itemToUpdate.getAmount());
+        return itemToUpdate;
+    }
+
+    public Item getItem(UUID itemId) {
+        for (Item item : items) {
+            if (item.getItemId().equals(itemId)) {
+                return item;
+            }
+        }
+        return null;
     }
 }

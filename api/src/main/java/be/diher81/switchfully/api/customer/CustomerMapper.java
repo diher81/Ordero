@@ -1,4 +1,4 @@
-package be.diher81.switchfully.api;
+package be.diher81.switchfully.api.customer;
 
 import be.diher81.switchfully.domain.customer.Customer;
 
@@ -17,6 +17,7 @@ public class CustomerMapper {
 
     public CustomerDto toDto(Customer customer) {
         return new CustomerDto(
+                customer.getCustomerId(),
                 customer.getFirstName(),
                 customer.getLastName(),
                 customer.getEmail(),
