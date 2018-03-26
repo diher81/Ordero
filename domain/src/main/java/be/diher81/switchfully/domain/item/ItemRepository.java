@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Named
-public class Warehouse {
+public class ItemRepository {
 
     private List<Item> items;
 
     @Inject
-    public Warehouse() {
+    public ItemRepository() {
         this.items = new ArrayList<>();
         createInitialStock();
     }
@@ -26,5 +26,10 @@ public class Warehouse {
         items.add(new Item("Rubber 3", "Tibhar Aurus", BigDecimal.valueOf(55.50), 10));
         items.add(new Item("Ball 1", "Stiga Celluloid", BigDecimal.valueOf(0.50), 200000000L));
         items.add(new Item("Ball 2", "Joola 40+ plastic", BigDecimal.valueOf(1.50), 200000000000L));
+    }
+
+    public Item addItem(Item item) {
+        items.add(item);
+        return item;
     }
 }
