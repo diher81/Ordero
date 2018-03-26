@@ -1,7 +1,5 @@
 package be.diher81.switchfully.api.item;
 
-import be.diher81.switchfully.api.customer.CustomerDto;
-import be.diher81.switchfully.domain.customer.Customer;
 import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.service.ItemService;
 import org.springframework.http.HttpStatus;

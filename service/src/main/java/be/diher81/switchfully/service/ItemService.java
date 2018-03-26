@@ -14,7 +14,7 @@ import java.util.UUID;
 @Named
 public class ItemService {
 
-    ItemRepository itemRepository;
+    private ItemRepository itemRepository;
 
     @Inject
     public ItemService(ItemRepository itemRepository) {
