@@ -17,6 +17,7 @@ public class CustomerMapper {
 
     public CustomerDto toDto(Customer customer) {
         return new CustomerDto(
+                customer.getCustomerId(),
                 customer.getFirstName(),
                 customer.getLastName(),
                 customer.getEmail(),
