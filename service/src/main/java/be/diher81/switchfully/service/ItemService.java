@@ -1,6 +1,7 @@
 package be.diher81.switchfully.service;
 
 import be.diher81.switchfully.domain.item.Item;
+import be.diher81.switchfully.domain.item.ItemInstantiationException;
 import be.diher81.switchfully.domain.item.ItemRepository;
 
 import javax.inject.Inject;
