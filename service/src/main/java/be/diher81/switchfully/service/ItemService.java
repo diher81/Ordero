@@ -1,6 +1,6 @@
 package be.diher81.switchfully.service;
 
-import be.diher81.switchfully.domain.customer.OrderInstantiationException;
+import be.diher81.switchfully.domain.customer.CustomerInstantiationException;
 import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.domain.item.ItemInstantiationException;
 import be.diher81.switchfully.domain.item.ItemRepository;
@@ -36,7 +36,7 @@ public class ItemService {
 
     public Item updateItem(Item item) {
         if (getItem(item.getItemId()) == null) {
-            throw new OrderInstantiationException("Item does not exist. Provide an existing ID");
+            throw new CustomerInstantiationException("Item does not exist. Provide an existing ID");
         }
         assertMandatoryFieldsFilledIn(item);
         return itemRepository.updateItem(item);

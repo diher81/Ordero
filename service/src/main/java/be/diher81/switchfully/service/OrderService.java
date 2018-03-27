@@ -1,6 +1,6 @@
 package be.diher81.switchfully.service;
 
-import be.diher81.switchfully.domain.customer.OrderInstantiationException;
+import be.diher81.switchfully.domain.customer.CustomerInstantiationException;
 import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.domain.item.ItemRepository;
 import be.diher81.switchfully.domain.order.ItemGroup;
@@ -58,38 +58,38 @@ public class OrderService {
 
     private void assertMandatoryFieldsFilledIn(Order order) {
         if (order.getCustomer().getFirstName() == null) {
-            throw new OrderInstantiationException("Please provide a first name.");
+            throw new CustomerInstantiationException("Please provide a first name.");
         }
         if (order.getCustomer().getLastName() == null) {
-            throw new OrderInstantiationException("Please provide a last name.");
+            throw new CustomerInstantiationException("Please provide a last name.");
         }
         if (order.getCustomer().getEmail() == null) {
-            throw new OrderInstantiationException("Please provide an e-mail address.");
+            throw new CustomerInstantiationException("Please provide an e-mail address.");
         }
         if (order.getCustomer().getPhoneNumber() == null) {
-            throw new OrderInstantiationException("Please provide a phone number.");
+            throw new CustomerInstantiationException("Please provide a phone number.");
         }
         if (order.getCustomer().getAddress() == null) {
-            throw new OrderInstantiationException("Please provide an address.");
+            throw new CustomerInstantiationException("Please provide an address.");
         }
         if (order.getCustomer().getAddress().getStreet() == null) {
-            throw new OrderInstantiationException("Please provide a street.");
+            throw new CustomerInstantiationException("Please provide a street.");
         }
         if (order.getCustomer().getAddress().getHouseNumber() == null) {
-            throw new OrderInstantiationException("Please provide a house number.");
+            throw new CustomerInstantiationException("Please provide a house number.");
         }
         if (order.getCustomer().getAddress().getPostalCode() == null) {
-            throw new OrderInstantiationException("Please provide a postal code.");
+            throw new CustomerInstantiationException("Please provide a postal code.");
         }
         if (order.getCustomer().getAddress().getCity() == null) {
-            throw new OrderInstantiationException("Please provide city.");
+            throw new CustomerInstantiationException("Please provide city.");
         }
         for (ItemGroup itemGroup : order.getItemGroups()) {
             if (itemGroup.getItemId() == null) {
-                throw new OrderInstantiationException("Please provide an item id.");
+                throw new CustomerInstantiationException("Please provide an item id.");
             }
             if (itemGroup.getAmount() <= 0) {
-                throw new OrderInstantiationException("Amount must be positive.");
+                throw new CustomerInstantiationException("Amount must be positive.");
             }
         }
     }
