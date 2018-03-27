@@ -2,13 +2,11 @@ package be.diher81.switchfully.domain.order;
 
 import be.diher81.switchfully.domain.customer.Address;
 import be.diher81.switchfully.domain.customer.Customer;
-import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.domain.item.ItemRepository;
 import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
