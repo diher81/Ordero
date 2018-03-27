@@ -1,7 +1,7 @@
 package be.diher81.switchfully.service;
 
 import be.diher81.switchfully.domain.customer.Customer;
-import be.diher81.switchfully.domain.customer.CustomerInstantiationException;
+import be.diher81.switchfully.domain.customer.OrderInstantiationException;
 import be.diher81.switchfully.domain.customer.CustomerRepository;
 
 import javax.inject.Inject;
@@ -29,31 +29,31 @@ public class CustomerService {
 
     private void assertMandatoryFieldsFilledIn(Customer customer) {
         if (customer.getFirstName() == null) {
-            throw new CustomerInstantiationException("Please provide a first name.");
+            throw new OrderInstantiationException("Please provide a first name.");
         }
         if (customer.getLastName() == null) {
-            throw new CustomerInstantiationException("Please provide a last name.");
+            throw new OrderInstantiationException("Please provide a last name.");
         }
         if (customer.getEmail() == null) {
-            throw new CustomerInstantiationException("Please provide an e-mail address.");
+            throw new OrderInstantiationException("Please provide an e-mail address.");
         }
         if (customer.getPhoneNumber() == null) {
-            throw new CustomerInstantiationException("Please provide a phone number.");
+            throw new OrderInstantiationException("Please provide a phone number.");
         }
         if (customer.getAddress() == null) {
-            throw new CustomerInstantiationException("Please provide an address.");
+            throw new OrderInstantiationException("Please provide an address.");
         }
         if (customer.getAddress().getStreet() == null) {
-            throw new CustomerInstantiationException("Please provide a street.");
+            throw new OrderInstantiationException("Please provide a street.");
         }
         if (customer.getAddress().getHouseNumber() == null) {
-            throw new CustomerInstantiationException("Please provide a house number.");
+            throw new OrderInstantiationException("Please provide a house number.");
         }
         if (customer.getAddress().getPostalCode() == null) {
-            throw new CustomerInstantiationException("Please provide a postal code.");
+            throw new OrderInstantiationException("Please provide a postal code.");
         }
         if (customer.getAddress().getCity() == null) {
-            throw new CustomerInstantiationException("Please provide city.");
+            throw new OrderInstantiationException("Please provide city.");
         }
     }
 }
