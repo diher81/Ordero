@@ -8,7 +8,7 @@ import javax.inject.Named;
 @Named
 public class CustomerMapper {
 
-    AddressMapper addressMapper;
+    private AddressMapper addressMapper;
 
     @Inject
     public CustomerMapper(AddressMapper addressMapper) {

@@ -1,5 +1,6 @@
 package be.diher81.switchfully.domain.order;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 import org.joda.time.DateTime;
 
@@ -9,6 +10,7 @@ public class ItemGroup {
     private UUID itemId;
     private long amount;
     private DateTime shippingDate;
+    private BigDecimal itemGroupPrice;
 
     public ItemGroup(UUID itemId, long amount, DateTime shippingDate) {
         this.id = UUID.randomUUID();
@@ -42,5 +44,13 @@ public class ItemGroup {
 
     public void setShippingDate(DateTime shippingDate) {
         this.shippingDate = shippingDate;
+    }
+
+    public BigDecimal getItemGroupPrice() {
+        return itemGroupPrice;
+    }
+
+    public void setItemGroupPrice(BigDecimal itemGroupPrice) {
+        this.itemGroupPrice = itemGroupPrice;
     }
 }

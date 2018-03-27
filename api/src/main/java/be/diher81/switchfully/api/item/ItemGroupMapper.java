@@ -1,4 +1,4 @@
-package be.diher81.switchfully.api.order;
+package be.diher81.switchfully.api.item;
 
 import be.diher81.switchfully.domain.order.ItemGroup;
 

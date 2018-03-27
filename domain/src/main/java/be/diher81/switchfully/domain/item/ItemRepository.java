@@ -29,6 +29,7 @@ public class ItemRepository {
         items.add(new Item("Ball 2", "Joola 40+ plastic", BigDecimal.valueOf(1.50), 200000000000L));
     }
 
+    // only used to create initial order repo
     public Item getRandomItem() {
         int index = 0;
         int i = (int) (Math.random() * getItems().size())   ;

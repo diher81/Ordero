@@ -18,6 +18,7 @@ public class OrderController {
 
     private OrderService orderService;
     private OrderMapper orderMapper;
+    private ReportOrderMapper reportOrderMapper;
 
     @Inject
     public OrderController(OrderService orderService, OrderMapper orderMapper) {
@@ -40,4 +41,15 @@ public class OrderController {
     public BigDecimal addNewOrder(@RequestBody OrderDto orderDto) {
         return orderService.addOrder(orderMapper.toDomain(orderDto));
     }
+
+    @GetMapping(path = "/report", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ReportOrderDto> getOrderReport() {
+        List<ReportOrderDto> reportOrderDtos = new ArrayList<>();
+        for (Order order : orderService.getOrders()) {
+            reportOrderDtos.add(reportOrderMapper.toDto(order));
+        }
+        return reportOrderDtos;
+    }
+
 }

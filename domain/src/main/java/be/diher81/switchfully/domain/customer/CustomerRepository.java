@@ -36,4 +36,17 @@ public class CustomerRepository {
     public List<Customer> getCustomers() {
         return customers;
     }
+
+    // Only used to create initial order repo
+    public Customer getRandomCustomer() {
+        int index = 0;
+        int i = (int) (Math.random() * getCustomers().size())   ;
+        for (Customer customer : getCustomers()) {
+            if (index == i) {
+                return customer;
+            }
+            index++;
+        }
+        return null;
+    }
 }

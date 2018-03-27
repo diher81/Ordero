@@ -1,6 +1,7 @@
 package be.diher81.switchfully.api.order;
 
 import be.diher81.switchfully.api.customer.CustomerDto;
+import be.diher81.switchfully.api.item.ItemGroupDto;
 
 import java.util.List;
 import java.util.UUID;

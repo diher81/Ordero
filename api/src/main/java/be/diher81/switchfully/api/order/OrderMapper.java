@@ -1,6 +1,8 @@
 package be.diher81.switchfully.api.order;
 
 import be.diher81.switchfully.api.customer.CustomerMapper;
+import be.diher81.switchfully.api.item.ItemGroupDto;
+import be.diher81.switchfully.api.item.ItemGroupMapper;
 import be.diher81.switchfully.domain.order.ItemGroup;
 import be.diher81.switchfully.domain.order.Order;
 

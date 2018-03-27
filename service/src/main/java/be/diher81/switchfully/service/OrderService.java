@@ -29,7 +29,7 @@ public class OrderService {
         assertMandatoryFieldsFilledIn(order);
         calculateShippingDates(order);
         orderRepository.addOrder(order);
-        return calculateOrderPrice(order.getItemGroups());
+        return calculateOrderPrice(order);
     }
 
     private void calculateShippingDates(Order order) {
@@ -43,17 +43,26 @@ public class OrderService {
         }
     }
 
-    private BigDecimal calculateOrderPrice(List<ItemGroup> itemGroups) {
-        BigDecimal price = BigDecimal.ZERO;
-        for (ItemGroup itemGroup : itemGroups) {
+    private BigDecimal calculateOrderPrice(Order order) {
+        BigDecimal itemGroupPrice;
+        BigDecimal orderPrice = BigDecimal.ZERO;
+        for (ItemGroup itemGroup : order.getItemGroups()) {
             Item item = itemRepository.getItem(itemGroup.getItemId());
-            price = price.add(item.getPrice().multiply(BigDecimal.valueOf(itemGroup.getAmount())));
+            itemGroupPrice = item.getPrice().multiply(BigDecimal.valueOf(itemGroup.getAmount()));
+            itemGroup.setItemGroupPrice(itemGroupPrice);
+            orderPrice = orderPrice.add(itemGroupPrice);
         }
-        return price;
+        order.setOrderPrice(orderPrice);
+        Order.setAllOrdersTotalPrice(Order.getAllOrdersTotalPrice().add(orderPrice));
+        return orderPrice;
     }
 
     public List<Order> getOrders() {
         return orderRepository.getOrders();
+    }
+
+    public List<Order> generateReport() {
+        return orderRepository.generateReport();
     }
 
     private void assertMandatoryFieldsFilledIn(Order order) {

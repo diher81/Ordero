@@ -1,13 +1,14 @@
 package be.diher81.switchfully.domain.order;
 
-import be.diher81.switchfully.domain.customer.Address;
 import be.diher81.switchfully.domain.customer.Customer;
+import be.diher81.switchfully.domain.customer.CustomerRepository;
 import be.diher81.switchfully.domain.item.ItemRepository;
 import org.joda.time.DateTime;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Named
@@ -15,11 +16,13 @@ public class OrderRepository {
 
     private List<Order> orders;
     private ItemRepository itemRepository;
+    private CustomerRepository customerRepository;
 
     @Inject
-    public OrderRepository(ItemRepository itemRepository) {
+    public OrderRepository(ItemRepository itemRepository, CustomerRepository customerRepository) {
         this.orders = new ArrayList<>();
         this.itemRepository = itemRepository;
+        this.customerRepository = customerRepository;
         createInitialOrders();
     }
 
@@ -34,11 +37,14 @@ public class OrderRepository {
     private void createInitialOrders() {
         ItemGroup itemGroup1 = new ItemGroup(itemRepository.getRandomItem().getItemId(), 3L, DateTime.now());
         ItemGroup itemGroup2 = new ItemGroup(itemRepository.getRandomItem().getItemId(), 4L, DateTime.now().plusDays(1));
+        Customer customer1 = customerRepository.getRandomCustomer();
         ArrayList<ItemGroup> itemGroups = new ArrayList<>();
         itemGroups.add(itemGroup1);
-//        itemGroups.add(itemGroup2);
-        Customer customer = new Customer("Stijn", "Verschueren", "s.v@cm.be", "0497979797",
-                new Address("Assurstreet", "10", "2020", "Schaerbeek"));
-        orders.add(new Order(customer,itemGroups));
+        itemGroups.add(itemGroup2);
+        orders.add(new Order(customer1,itemGroups));
+    }
+
+    public List<Order> generateReport() {
+        return Collections.unmodifiableList(orders);
     }
 }
