@@ -11,6 +11,9 @@ public class ItemGroupDto {
     private long amount;
     private DateTime shippingDate;
 
+    public ItemGroupDto() {
+    }
+
     public ItemGroupDto(UUID id, UUID itemId, long amount, DateTime shippingDate) {
         this.id = id;
         this.itemId = itemId;
@@ -33,11 +36,5 @@ public class ItemGroupDto {
     public DateTime getShippingDate() {
         return shippingDate;
     }
-
-
-    //    public String getShippingDate() {
-//        return String.format("Day: %s Month: %s Year: %s",
-//                shippingDate.getDayOfWeek() + shippingDate.getDayOfMonth() + shippingDate.getDayOfYear());
-//    }
 
 }

@@ -29,6 +29,18 @@ public class ItemRepository {
         items.add(new Item("Ball 2", "Joola 40+ plastic", BigDecimal.valueOf(1.50), 200000000000L));
     }
 
+    public Item getRandomItem() {
+        int index = 0;
+        int i = (int) (Math.random() * getItems().size())   ;
+        for (Item item : getItems()) {
+            if (index == i) {
+                return item;
+            }
+            index++;
+        }
+        return null;
+    }
+
     public Item addItem(Item item) {
         items.add(item);
         return item;

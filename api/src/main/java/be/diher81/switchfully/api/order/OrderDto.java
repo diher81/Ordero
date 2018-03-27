@@ -11,6 +11,9 @@ public class OrderDto {
     private CustomerDto customerDto;
     private List<ItemGroupDto> itemGroupDtos;
 
+    public OrderDto() {
+    }
+
     public OrderDto(UUID id, CustomerDto customerDto, List<ItemGroupDto> itemGroupDtos) {
         this.id = id;
         this.customerDto = customerDto;
