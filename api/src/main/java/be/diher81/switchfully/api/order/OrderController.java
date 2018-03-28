@@ -21,9 +21,10 @@ public class OrderController {
     private ReportOrderMapper reportOrderMapper;
 
     @Inject
-    public OrderController(OrderService orderService, OrderMapper orderMapper) {
+    public OrderController(OrderService orderService, OrderMapper orderMapper, ReportOrderMapper reportOrderMapper) {
         this.orderService = orderService;
         this.orderMapper = orderMapper;
+        this.reportOrderMapper = reportOrderMapper;
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)

@@ -7,15 +7,17 @@ import be.diher81.switchfully.domain.item.ItemGroup;
 import be.diher81.switchfully.domain.order.Order;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 
+@Named
 public class ReportOrderMapper {
 
     private CustomerMapper customerMapper;
     private ReportItemGroupMapper reportItemGroupMapper;
 
     @Inject
-    public ReportOrderMapper(CustomerMapper customerMapper, ReportItemGroupMapper itemGroupMapper) {
+    public ReportOrderMapper(CustomerMapper customerMapper, ReportItemGroupMapper reportItemGroupMapper) {
         this.customerMapper = customerMapper;
         this.reportItemGroupMapper = reportItemGroupMapper;
     }
