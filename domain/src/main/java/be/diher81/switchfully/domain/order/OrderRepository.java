@@ -11,6 +11,7 @@ import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 @Named
 public class OrderRepository {
@@ -33,6 +34,15 @@ public class OrderRepository {
 
     public void addOrder(Order order) {
         orders.add(order);
+    }
+
+    public Order getOrder(UUID orderId) {
+        for (Order order : getOrders()) {
+            if (order.getId().equals(orderId)) {
+                return order;
+            }
+        }
+        return null;
     }
 
     private void createInitialOrders() {

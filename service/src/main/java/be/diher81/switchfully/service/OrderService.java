@@ -104,11 +104,11 @@ public class OrderService {
         }
     }
 
-    private void assertOrderIdBelongsToCustomer(Order order) {
+    private void assertOrderIdBelongsToCustomer(String customerId, String orderId) {
         boolean combinationOk = false;
         for (Order orderFromRepo : orderRepository.getOrders()) {
-            if (orderFromRepo.getId().equals(order.getId())) {
-                if (orderFromRepo.getCustomer().getCustomerId().equals(order.getCustomer().getCustomerId())) {
+            if (orderFromRepo.getId().equals(UUID.fromString(orderId))){
+                if (orderFromRepo.getCustomer().getCustomerId().equals(customerId)) {
                     combinationOk = true;
                 }
             }
@@ -116,12 +116,12 @@ public class OrderService {
         if (! combinationOk) {
             throw new OrderInstantiationException(
                     String.format("This orderId (%s) does not belong to customer with id %s",
-                    order.getId(), order.getCustomer().getCustomerId().toString()));
+                            orderId, customerId));
         }
     }
 
-    public BigDecimal addReOrder(Order order) {
-        assertOrderIdBelongsToCustomer(order);
-        return calculateOrderPrice(order);
+    public BigDecimal addReOrder(String customerId, String orderId) {
+        assertOrderIdBelongsToCustomer(customerId, orderId);
+        return calculateOrderPrice(orderRepository.getOrder(UUID.fromString(orderId)));
     }
 }
