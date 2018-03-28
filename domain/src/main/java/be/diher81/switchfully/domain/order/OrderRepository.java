@@ -28,7 +28,7 @@ public class OrderRepository {
     }
 
     public List<Order> getOrders() {
-        return orders;
+        return Collections.unmodifiableList(orders);
     }
 
     public void addOrder(Order order) {
@@ -45,7 +45,4 @@ public class OrderRepository {
         orders.add(new Order(customer1,itemGroups));
     }
 
-    public List<Order> generateReport() {
-        return Collections.unmodifiableList(orders);
-    }
 }

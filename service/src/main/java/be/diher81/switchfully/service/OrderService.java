@@ -53,16 +53,15 @@ public class OrderService {
             orderPrice = orderPrice.add(itemGroupPrice);
         }
         order.setOrderPrice(orderPrice);
+        if (Order.getAllOrdersTotalPrice() == null) {
+            Order.setAllOrdersTotalPrice(BigDecimal.ZERO);
+        }
         Order.setAllOrdersTotalPrice(Order.getAllOrdersTotalPrice().add(orderPrice));
         return orderPrice;
     }
 
     public List<Order> getOrders() {
         return orderRepository.getOrders();
-    }
-
-    public List<Order> generateReport() {
-        return orderRepository.generateReport();
     }
 
     private void assertMandatoryFieldsFilledIn(Order order) {

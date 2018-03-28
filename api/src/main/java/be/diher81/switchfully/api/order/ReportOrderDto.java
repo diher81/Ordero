@@ -13,13 +13,16 @@ public class ReportOrderDto {
     private UUID id;
     private List<ReportItemGroupDto> reportItemGroupDtos;
     private BigDecimal orderPrice;
+    private BigDecimal allOrdersTotalPrice;
 
     public ReportOrderDto() {
     }
 
-    public ReportOrderDto(UUID id, List<ReportItemGroupDto> reportItemGroupDtos) {
+    public ReportOrderDto(UUID id, List<ReportItemGroupDto> reportItemGroupDtos, BigDecimal orderPrice, BigDecimal allOrdersTotalPrice) {
         this.id = id;
         this.reportItemGroupDtos = reportItemGroupDtos;
+        this.orderPrice = orderPrice;
+        this.allOrdersTotalPrice = allOrdersTotalPrice;
     }
 
     public UUID getId() {
@@ -32,5 +35,9 @@ public class ReportOrderDto {
 
     public BigDecimal getOrderPrice() {
         return orderPrice;
+    }
+
+    public BigDecimal getAllOrdersTotalPrice() {
+        return allOrdersTotalPrice;
     }
 }

@@ -23,7 +23,9 @@ public class ReportOrderMapper {
     public ReportOrderDto toDto(Order order) {
         return new ReportOrderDto(
                 order.getId(),
-                mapReportItemGroupsToDtos(order)
+                mapReportItemGroupsToDtos(order),
+                order.getOrderPrice(),
+                Order.getAllOrdersTotalPrice()
         );
     }
 
