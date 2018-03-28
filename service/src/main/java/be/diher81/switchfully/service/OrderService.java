@@ -5,6 +5,7 @@ import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.domain.item.ItemRepository;
 import be.diher81.switchfully.domain.item.ItemGroup;
 import be.diher81.switchfully.domain.order.Order;
+import be.diher81.switchfully.domain.order.OrderInstantiationException;
 import be.diher81.switchfully.domain.order.OrderRepository;
 import org.joda.time.DateTime;
 
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Named
 public class OrderService {
@@ -100,5 +102,26 @@ public class OrderService {
                 throw new CustomerInstantiationException("Amount must be positive.");
             }
         }
+    }
+
+    private void assertOrderIdBelongsToCustomer(Order order) {
+        boolean combinationOk = false;
+        for (Order orderFromRepo : orderRepository.getOrders()) {
+            if (orderFromRepo.getId().equals(order.getId())) {
+                if (orderFromRepo.getCustomer().getCustomerId().equals(order.getCustomer().getCustomerId())) {
+                    combinationOk = true;
+                }
+            }
+        }
+        if (! combinationOk) {
+            throw new OrderInstantiationException(
+                    String.format("This orderId (%s) does not belong to customer with id %s",
+                    order.getId(), order.getCustomer().getCustomerId().toString()));
+        }
+    }
+
+    public BigDecimal addReOrder(Order order) {
+        assertOrderIdBelongsToCustomer(order);
+        return calculateOrderPrice(order);
     }
 }

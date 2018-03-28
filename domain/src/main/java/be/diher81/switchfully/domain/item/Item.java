@@ -13,11 +13,7 @@ public class Item {
     private long amount;
 
     public Item(String name, String description, BigDecimal price, long amount) {
-        this.itemId = UUID.randomUUID();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.amount = amount;
+        this(UUID.randomUUID(), name, description, price, amount);
     }
 
     public Item(UUID id, String name, String description, BigDecimal price, long amount) {

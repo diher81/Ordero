@@ -18,7 +18,11 @@ public class Order {
     private static BigDecimal allOrdersTotalPrice;
 
     public Order(Customer customer, List<ItemGroup> itemGroups) {
-        this.id = UUID.randomUUID();
+        this(UUID.randomUUID(), customer, itemGroups);
+    }
+
+    public Order(UUID id, Customer customer, List<ItemGroup> itemGroups) {
+        this.id = id;
         this.customer = customer;
         this.itemGroups = itemGroups;
     }

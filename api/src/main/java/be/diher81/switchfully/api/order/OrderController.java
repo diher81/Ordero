@@ -53,4 +53,10 @@ public class OrderController {
         return reportOrderDtos;
     }
 
+    @PostMapping(path = "/reorder/{orderid}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public BigDecimal reOrder(@PathVariable("orderid") String orderid, @RequestBody OrderDto orderDto) {
+        return orderService.addReOrder(orderMapper.toDomain(orderDto, orderid));
+    }
+
 }

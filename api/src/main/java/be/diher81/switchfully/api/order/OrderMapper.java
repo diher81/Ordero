@@ -9,6 +9,7 @@ import be.diher81.switchfully.domain.order.Order;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Named
 public class OrderMapper {
@@ -40,6 +41,14 @@ public class OrderMapper {
 
     public Order toDomain(OrderDto orderDto) {
         return new Order(
+                customerMapper.toDomain(orderDto.getCustomerDto()),
+                mapItemGroupDtosToItemGroups(orderDto)
+        );
+    }
+
+    public Order toDomain(OrderDto orderDto, String orderId) {
+        return new Order(
+                UUID.fromString(orderId),
                 customerMapper.toDomain(orderDto.getCustomerDto()),
                 mapItemGroupDtosToItemGroups(orderDto)
         );
