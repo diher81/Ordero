@@ -13,19 +13,16 @@ import java.util.ArrayList;
 @Named
 public class ReportOrderMapper {
 
-    private CustomerMapper customerMapper;
     private ReportItemGroupMapper reportItemGroupMapper;
 
     @Inject
-    public ReportOrderMapper(CustomerMapper customerMapper, ReportItemGroupMapper reportItemGroupMapper) {
-        this.customerMapper = customerMapper;
+    public ReportOrderMapper(ReportItemGroupMapper reportItemGroupMapper) {
         this.reportItemGroupMapper = reportItemGroupMapper;
     }
 
     public ReportOrderDto toDto(Order order) {
         return new ReportOrderDto(
                 order.getId(),
-                customerMapper.toDto(order.getCustomer()),
                 mapReportItemGroupsToDtos(order)
         );
     }
