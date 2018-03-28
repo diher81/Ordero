@@ -1,6 +1,7 @@
-package be.diher81.switchfully.domain.order;
+package be.diher81.switchfully.domain.item;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.UUID;
 import org.joda.time.DateTime;
 
@@ -52,5 +53,19 @@ public class ItemGroup {
 
     public void setItemGroupPrice(BigDecimal itemGroupPrice) {
         this.itemGroupPrice = itemGroupPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemGroup itemGroup = (ItemGroup) o;
+        return Objects.equals(id, itemGroup.id);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
     }
 }

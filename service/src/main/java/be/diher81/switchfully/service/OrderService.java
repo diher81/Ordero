@@ -3,7 +3,7 @@ package be.diher81.switchfully.service;
 import be.diher81.switchfully.domain.customer.CustomerInstantiationException;
 import be.diher81.switchfully.domain.item.Item;
 import be.diher81.switchfully.domain.item.ItemRepository;
-import be.diher81.switchfully.domain.order.ItemGroup;
+import be.diher81.switchfully.domain.item.ItemGroup;
 import be.diher81.switchfully.domain.order.Order;
 import be.diher81.switchfully.domain.order.OrderRepository;
 import org.joda.time.DateTime;

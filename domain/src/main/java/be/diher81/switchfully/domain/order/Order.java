@@ -1,10 +1,12 @@
 package be.diher81.switchfully.domain.order;
 
 import be.diher81.switchfully.domain.customer.Customer;
+import be.diher81.switchfully.domain.item.ItemGroup;
 
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Order {
@@ -47,5 +49,19 @@ public class Order {
 
     public static void setAllOrdersTotalPrice(BigDecimal allOrdersTotalPrice) {
         Order.allOrdersTotalPrice = allOrdersTotalPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(id, order.id);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
     }
 }

@@ -1,7 +1,6 @@
 package be.diher81.switchfully.api.item;
 
-import be.diher81.switchfully.api.item.ReportItemGroupDto;
-import be.diher81.switchfully.domain.order.ItemGroup;
+import be.diher81.switchfully.domain.item.ItemGroup;
 import be.diher81.switchfully.service.ItemService;
 
 import javax.inject.Inject;

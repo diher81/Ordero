@@ -2,6 +2,7 @@ package be.diher81.switchfully.domain.order;
 
 import be.diher81.switchfully.domain.customer.Customer;
 import be.diher81.switchfully.domain.customer.CustomerRepository;
+import be.diher81.switchfully.domain.item.ItemGroup;
 import be.diher81.switchfully.domain.item.ItemRepository;
 import org.joda.time.DateTime;
 

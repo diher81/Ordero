@@ -1,5 +1,6 @@
 package be.diher81.switchfully.domain.customer;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Customer {
@@ -42,5 +43,19 @@ public class Customer {
 
     public Address getAddress() {
         return address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(customerId, customer.customerId);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(customerId);
     }
 }
