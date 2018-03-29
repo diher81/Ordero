@@ -21,26 +21,26 @@ public class ControllerAdvice {
     private static final Logger ORDER_LOGGER = LoggerFactory.getLogger(OrderService.class);
 
     @ExceptionHandler(CustomerInstantiationException.class)
-    public ResponseEntity<String> convertCustomerInstantiationException(final CustomerInstantiationException exception){
+    public ResponseEntity<ExceptionOutput> convertCustomerInstantiationException(final CustomerInstantiationException exception){
         CUSTOMER_LOGGER.error("ERROR: " + exception.getMessage(), exception);
         return new ResponseEntity<>(
-                exception.getMessage(),
-                HttpStatus.BAD_REQUEST);
+                new ExceptionOutput(exception.getLocalizedMessage()),
+                HttpStatus.I_AM_A_TEAPOT);
     }
 
     @ExceptionHandler(ItemInstantiationException.class)
-    public ResponseEntity<String> convertItemInstantiationException(final ItemInstantiationException exception){
+    public ResponseEntity<ExceptionOutput> convertItemInstantiationException(final ItemInstantiationException exception){
         ITEM_LOGGER.error("ERROR: " + exception.getMessage(), exception);
         return new ResponseEntity<>(
-                exception.getMessage(),
+                new ExceptionOutput(exception.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(OrderInstantiationException.class)
-    public ResponseEntity<String> convertOrderInstantiationException(final OrderInstantiationException exception){
+    public ResponseEntity<ExceptionOutput> convertOrderInstantiationException(final OrderInstantiationException exception){
         ORDER_LOGGER.error("ERROR: " + exception.getMessage(), exception);
         return new ResponseEntity<>(
-                exception.getMessage(),
+                new ExceptionOutput(exception.getMessage()),
                 HttpStatus.BAD_REQUEST);
     }
 }

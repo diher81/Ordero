@@ -108,7 +108,7 @@ public class OrderService {
         boolean combinationOk = false;
         for (Order orderFromRepo : orderRepository.getOrders()) {
             if (orderFromRepo.getId().equals(UUID.fromString(orderId))){
-                if (orderFromRepo.getCustomer().getCustomerId().equals(customerId)) {
+                if (orderFromRepo.getCustomer().getCustomerId().equals(UUID.fromString(customerId))){
                     combinationOk = true;
                 }
             }
